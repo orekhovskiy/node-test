@@ -5,8 +5,6 @@ block content
     h1= title
     - for (let val of inputTextValues) {
       div(class="text-field")
-        label
-          input(type="text", name=val, id=val, placeholder=val)
-        - val
+        input(type="text", name=val, id=val, placeholder=val)
     - }
     input(type="submit", value="Save 'em!")
