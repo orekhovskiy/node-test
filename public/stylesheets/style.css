@@ -26,3 +26,15 @@ input:focus {
 input[type=submit]:focus  {     
   background-color:#efd8d2  ;    
 }
+
+.info {
+  font-size: 15px;
+}
+
+.success {
+  color: #11823b;
+}
+
+.fail {
+  color: #d9592a;
+}

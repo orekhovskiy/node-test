@@ -8,3 +8,7 @@ block content
         input(type="text", name=val, id=val, placeholder=val)
     - }
     input(type="submit", value="Save 'em!")
+  if saveResult && saveResult.success
+    h3(class="info success")= `Successfully saved at ${saveResult.data}`
+  if saveResult && !saveResult.success
+    h3(class="info fail")= saveResult.data
