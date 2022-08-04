@@ -9,6 +9,8 @@ block content
     - }
     input(type="submit", value="Save 'em!")
   if saveResult && saveResult.success
-    h3(class="info success")= `Successfully saved at ${saveResult.data}`
+    h3(class="info success") Successfully saved object:
+    p(class="info success")= saveResult.data
   if saveResult && !saveResult.success
-    h3(class="info fail")= saveResult.data
+    h3(class="info success") Failed to save object:
+    p(class="info success")= saveResult.data
