@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  form(id="save", name="save", action="#{saveUrl}", method="post")
+    h1= title
+    - for (let val of inputTextValues) {
+      div(class="text-field")
+        label
+          input(type="text", name=val, id=val, placeholder=val)
+        - val
+    - }
+    input(type="submit", value="Save 'em!")
