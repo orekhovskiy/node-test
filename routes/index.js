@@ -25,17 +25,20 @@ router.post('/save', async function(req, res, next) {
   for (let val of accessNames) {
     entry[val] = req.body[val];
   }
-  let result = await entryService.saveEntry(entry);
   let val = JSON.parse(JSON.stringify(indexValues));
   val.saveResult = new Object();
-  val.saveResult.data = result;
-  if (result) {
+  try {
+    let result = await entryService.saveEntry(entry);
+    val.saveResult.data = result;
     val.saveResult.success = true;
     res.status(200).render('index', val);
-  } else {
+  }
+  catch (e) {
     val.saveResult.success = false;
+    val.saveResult.data = e;
     res.status(500).render('index', val);
   }
+    
 });
 
 module.exports = router;

@@ -12,5 +12,5 @@ block content
     h3(class="info success") Successfully saved object:
     p(class="info success")= saveResult.data
   if saveResult && !saveResult.success
-    h3(class="info success") Failed to save object:
-    p(class="info success")= saveResult.data
+    h3(class="info fail") Failed to save object:
+    p(class="info fail")= saveResult.data

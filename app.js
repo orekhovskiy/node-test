@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DB_URL = process.env.DB_URL;
+const DB_NAME = process.env.DB_NAME;
 
 var indexRouter = require('./routes/index');
 
@@ -41,11 +42,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-mongoose.connect(DB_URL, { 
+console.log(DB_URL + DB_NAME);
+mongoose.connect(DB_URL + DB_NAME, /*{ 
   useUnifiedTopology: true, 
-  useNewUrlParser: true }, 
+  useNewUrlParser: true }, */
   function(err) {
-    if(err) process.exit(1);
+    if(err) {
+      console.log("Unable to connect to DB")
+      process.exit(1);
+    } else {
+      console.log("Successfully connected to DB");
+    }
 });
 
 module.exports = app;

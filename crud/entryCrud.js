@@ -5,7 +5,7 @@ async function saveEntry(entry) {
         return await Entry.create(entry);
     } catch (e) {
         console.log(e);
-        return e;
+        throw e;
     }
 }
 
